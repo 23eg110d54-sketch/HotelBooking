@@ -6,6 +6,14 @@ export default function RoomCard({ room, userId }) {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [paymentData, setPaymentData] = useState({});
   const [showPayment, setShowPayment] = useState(false);
+  const [checkIn, setCheckIn] = useState('');
+  const [checkOut, setCheckOut] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+
+  const color = room.available ? '#6C63FF' : '#ef4444';
 
   const handleNextToPayment = () => {
     if (!checkIn || !checkOut) { setError('Please select both dates'); return; }
